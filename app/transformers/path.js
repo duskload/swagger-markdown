@@ -40,6 +40,10 @@ module.exports = (path, data, parameters) => {
           res.push(`**Description:** ${pathInfo.description}\n`);
         }
 
+        if ('operationId' in pathInfo) {
+          res.push(`**Method Name:** ${pathInfo.operationId}\n`);
+        }
+
         // Build parameters
         if ('parameters' in pathInfo || pathParameters) {
           res.push(`${transformParameters(pathInfo.parameters, pathParameters, parameters)}\n`);
